@@ -1,0 +1,55 @@
+{
+  "name": "@satori/mai3.js",
+  "version": "0.7.0",
+  "description": "Mai Protocol v3 JavaScript API",
+  "homepage": "http://github.com/Satori-finance/amm.mai3.js",
+  "author": "Zhu Tianchi <zhutianchi@mcarlo.com>",
+  "contributors": [],
+  "keywords": [
+    "mai",
+    "protocol",
+    "satori"
+  ],
+  "main": "./dist/index.js",
+  "jsnext:main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "engines": {
+    "node": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Satori-finance/amm.mai3.js"
+  },
+  "bugs": {
+    "url": "https://github.com/Satori-finance/amm.mai3.js/issues"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^24.0.25",
+    "@types/node": "^14.14.10",
+    "jest": "^24.9.0",
+    "prettier": "^1.19.1",
+    "ts-jest": "^24.3.0",
+    "typescript": "~3.9"
+  },
+  "dependencies": {
+    "bignumber.js": "~9.0.0",
+    "ethers": "^5.5.2"
+  },
+  "prepare": "npm run build",
+  "scripts": {
+    "test": "jest --runInBand",
+    "coverage": "jest --coverage",
+    "build": "tsc && cp src/abi/*.d.ts dist/abi",
+    "start_testrpc": "npm install ganache-cli && (nohup ganache-cli -p 8545 -m \"diagram range remind capable strategy fragile midnight bunker garage ship predict curtain\" -g 1 -l 10000000 -e 100000000000000000000 -i 66 > /tmp/ganache-cli.run.log 2>&1 &)",
+    "stop_testrpc": "kill $(ps aux|grep \"[d]iagram range remind capable\"|awk '{print $2}')",
+    "deploy_contract": "chmod +x ./scripts/deploy_contract.sh && ./scripts/deploy_contract.sh",
+    "build_test_env": "node scripts/run_test_env.js"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.com/"
+  }
+}
